@@ -1,0 +1,22 @@
+ALGORITHM TriParInsertion 
+VAR
+    Tab : ARRAY_OF INTEGER;
+    i,j,n,x : INTEGER;
+    t : STRING;
+BEGIN
+//DEMANDE A L'UTILISATEUR DE SAISIR UN TABLEAU
+   write ("Veuillez saisir votre tableau");
+   Read (t);
+   FOR i FROM 0 TO Tab.Length.-1 STEP 1  DO
+//ENREGISTRER Tab[i] dans x
+    x:=Tab[i];
+// DECALER LES ELEMENTS T[0]..T[i-1] QUI SONT PLUS GRANDS QUE x, EN PARTANT DE T[i-1]    
+   j:=i;
+        WHILE (j :> 0 AND Tab[j-1] :> x) DO
+         Tab[j] := Tab[j-1];
+         j := j-1;
+//PLACER x DANS LA "place" LAISSER PAR LE DECALAGE
+         Tab[j] := x;
+        END_WHILE                         
+   END_FOR
+END
